@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Auto Solver</title>
+</head>
+<body>
+    <div id="header">
+        <div id="one">
+            <h1>Triangle Auto Solver</h1>
+            <h2>Created by Jonathan Rivard</h2>
+        </div>
+        <div id="two">
+            <a href="https://jonathanrivard.github.io/" target="_blank"><h3>Github</h3></a>
+        </div>
+    </div>
+    <div id="main">
+        <div id="angles">
+            <p>Angle A</p>
+            <input type="text" id="angleA" onchange="update()">
+            <p>Angle B</p>
+            <input type="text" id="angleB" onchange="update()">
+            <p>Angle C</p>
+            <input type="text" id="angleC" onchange="update()">
+        </div>
+        <div id="sides">
+            <p>Side A</p>
+            <input type="text" id="sideA" onchange="update()">
+            <p>Side B</p>
+            <input type="text" id="sideB" onchange="update()">
+            <p>Side C</p>
+            <input type="text" id="sideC" onchange="update()">
+        </div>
+        <div id="other">
+            <button id="reset-button" onclick="reset()">Reset</button>
+        </div>
+    </div>
+</body>
+<script src="js/main.js"></script>
+</html>
