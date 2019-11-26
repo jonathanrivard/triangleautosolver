@@ -81,7 +81,7 @@ class Triangle {
                 //Get largest side
                 var largest = 0;
                 for(var i = 0; i < 3; i++){
-                    if(matrix[2][largest] < matrix[2][i]){
+                    if(parseFloat(matrix[2][largest]) < parseFloat(matrix[2][i])){
                         largest = i;
                     }
                 }
@@ -105,8 +105,17 @@ class Triangle {
                     matrix[1][0] = asin(parseFloat(matrix[2][0]) / parseFloat(matrix[2][largest]));
                 }
             }else if(allAngles == true){ //AAA
-                this.a = "Need at least one side";
-                return;
+                //Get smallest angle in [1][0]
+                var smallest = 0;
+                for(var i = 1; i < 3; i++){
+                    if(parseFloat(matrix[i][0]) < parseFloat(matrix[1][smallest])){
+                        smallest = i;
+                    }
+                }
+                
+                //Set the smallest angle's side equal to 1
+                matrix[2][smallest] = 1;
+
             }else if(noPair == true){ //Two angles and a side
                 if(angles > sides){ 
                     //Loop so side is in [2][0]
@@ -131,8 +140,7 @@ class Triangle {
 
                     //Now there is a side in [2][0]
                     //Get the angle matching it
-                    matrix[1][0] = 180 - (matrix[1][1] + matrix[1][2]);
-
+                    matrix[1][0] = 180 - (parseFloat(matrix[1][1]) + parseFloat(matrix[1][2]));
                 }else if(sides > angles){
                     //Loop so angle is in [1][0]
                     for(var i = 0; i < 3; i++){
@@ -160,6 +168,25 @@ class Triangle {
                 }else {
                     console.log("ERROR: Number of sides and angles are the same!");
                 }
+            }
+
+            for(var i = 0; i < 3; i++){ //Try to get the first angle and side to not be null
+                if(matrix[1][0] != "" && matrix[2][0] != ""){
+                    break;
+                }
+
+                //Make temp matrix
+                var temp = new Array(3);
+                for(var r = 0; r < 3; r++){
+                    temp[r] = new Array(3);
+                }
+
+                for(var r = 0; r < matrix.length; r++){
+                    for(var c = 0; c < matrix[r].length; c++){
+                        temp[r][c] = matrix[r][(c+1)%3];
+                    }
+                }
+                matrix = temp;
             }
 
             //Get a value in column two
@@ -219,20 +246,32 @@ class Triangle {
     }
 
     static lawOfSineSide(A, a, B){
+        A = parseFloat(A);
+        a = parseFloat(a);
+        B = parseFloat(B);
         return (a * sin(B)) / sin(A);
     }
 
     static lawOfSineAngle(A, a, b){
+        A = parseFloat(A);
+        a = parseFloat(a);
+        b = parseFloat(b);
         var num = (b * sin(A)) / a;
         if(num > 1) return "no solution";
         else return asin(num);
     }
 
     static lawOfCosineSide(A, b, c){
+        A = parseFloat(A);
+        b = parseFloat(b);
+        c = parseFloat(c);
         return Math.sqrt((b**2 + c**2) - (2*b*c*cos(A)));
     }
 
     static lawOfCosineAngle(a, b, c){
+        a = parseFloat(a);
+        b = parseFloat(b);
+        c = parseFloat(c);
         return acos(a**2 - b**2 - c**2 + 2*b*c);
     }
 
