@@ -317,6 +317,7 @@ function reset(){
     sideB.value = "";
     sideC.value = "";
     updateTriangleValues(tri);
+    document.getElementById("reset-button").blur();
 }
 
 //My math functions, because I like degrees

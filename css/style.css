@@ -5,16 +5,14 @@
 }
 
 html {
-    font-size: 14px;
+    font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 #main {
-    display: grid;
-    height: 80%;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 3fr 1fr;
 }
 
 #main p {
@@ -26,63 +24,62 @@ html {
 #main input {
     height: 2rem;
     margin: 0.5rem;
-    font-size: 2rem;
+    font-size: 1rem;
     text-align: center;
 }
 
 #header {
-    grid-column: 1 / span 2;
-    grid-row: 1;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: lightgray;
-    height: 20%;
+    height: 20vh;
+    align-items: center;
 }
 
 #header div{
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    align-items: center;
 }
 
 #header div h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 #header div h2 {
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 #header div a {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: black;
     background-color: white;
     border-radius: 0.5rem;
     text-align: center;
-    width: 100%;
+    width: 70%;
+    padding: 0.5rem;
 }
 
 #header #one {
-    width: 70%;
-    height: 100%;
+    width: 100%;
+    height: 50%;
 }
 
 #header #two {
-    width: 30%;
-    height: 100%;
-    align-items: center;
-    align-self: center;
+    width: 100%;
+    height: 50%;
 }
 
 #angles {
-    /*border: 1px solid red;*/
-    grid-column: 1 ;
-    grid-row: 1;
+    border-bottom: 1rem solid lightgray;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
     font-size: 3rem;
+    width: 80%;
+    align-self: center;
 }
 
 #angles * {
@@ -90,14 +87,14 @@ html {
 }
 
 #sides {
-    /*border: 1px solid yellow;*/
-    grid-column: 2 ;
-    grid-row: 1;
+    border-bottom: 1rem solid lightgray;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
     font-size: 3rem;
+    width: 80%;
+    align-self: center;
 }
 
 #sides * {
@@ -106,8 +103,6 @@ html {
 
 #other {
     /*border: 1px solid blue;*/
-    grid-column: 1 / span 2;
-    grid-row: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -116,23 +111,81 @@ html {
 
 #other #reset-button {
     width: 80%;
-    height: 90%;
+    height: 5rem;
     text-align: center;
     font-size: 2rem;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: lightgray;
+    color: white;
+    border: 0.2rem solid lightgray;
+    text-transform: none;
+}
+
+#other #reset-button:hover {
+    background-color: white;
+    color: lightgray;
+    text-transform: none;
+}
+
+#other #reset-button:focus {
+    outline: 0;
+    text-transform: uppercase;
+}
+
+#header #two a:hover {
+    border: 0.2rem solid white;
+    background-color: lightgray;
+    color: white;
 }
 
 @media only screen and (min-width: 800px){
-
-    #header div h1 {
-        font-size: 2.5rem;
-    }
-    
-    #header div h2 {
-        font-size: 1.5rem;
+    html {
+        font-size: 16px;
     }
 
-    #header div a {
-        width: 80%;
+    #header {
+        height: 20vh;
+        flex-direction: row;
+    }
+
+    #header #one {
+        align-items: baseline;
+    }
+
+    #header #two {
+        width: 50%;
+    }
+
+    #main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 3fr 1fr;
+    }
+
+    #main div {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
+    }
+
+    #angles {
+        grid-row: 1;
+        grid-column: 1;
+        width: 100%;
+    }
+
+    #sides {
+        grid-row: 1;
+        grid-column: 2;
+        width: 100%;
+    }
+
+    #main #other {
+        width: 100%;
+    }
+
+    #other {
+        grid-row: 2;
+        grid-column: 1 / span 2;
     }
 }
