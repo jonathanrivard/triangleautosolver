@@ -150,6 +150,9 @@ html {
 
     #header #one {
         align-items: baseline;
+        align-self: center;
+        margin-left: 1rem;
+        margin-top: 0rem;
     }
 
     #header #two {
