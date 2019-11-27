@@ -32,7 +32,7 @@ html {
     display: flex;
     flex-direction: column;
     background-color: lightgray;
-    height: 30vh;
+    height: 25vh;
     align-items: center;
 }
 
@@ -190,5 +190,12 @@ html {
     #other {
         grid-row: 2;
         grid-column: 1 / span 2;
+    }
+}
+
+@media only screen and (max-height: 500px){
+    #header {
+        height: 150px;
+        min-height: 150px;
     }
 }
